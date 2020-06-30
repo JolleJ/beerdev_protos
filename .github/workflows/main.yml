@@ -22,5 +22,5 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.CI_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          args: protos JolleJ
+          args: protos JolleJ starter-name
 
