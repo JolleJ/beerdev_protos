@@ -9,7 +9,7 @@ jobs:
     - name: Create local changes
       run: |
         ...
-    - name: Commit files
+    - name: Commit files2
       run: |
         git config --local user.email "JoelJansson96@gmail.com"
         git config --local user.name "JolleJ"
