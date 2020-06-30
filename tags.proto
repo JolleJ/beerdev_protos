@@ -6,6 +6,7 @@ package tags;
 service TagsService {
   rpc addTag(AddTagRequest) returns (Result) {}
   rpc listTags(Empty) returns (TagsList) {}
+  rpc listTagsTest(Empty) returns (TagsList) {}
 }
 
 // message type definitions
