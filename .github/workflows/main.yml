@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Pushes to another repository
-      uses: JolleJ/beerdev_protos
+      uses: JolleJ/beerdev_protos@master
       env: 
         API_TOKEN_GITHUB: ${{ secrets.CI_TOKEN }}
       with:
