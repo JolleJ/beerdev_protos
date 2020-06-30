@@ -23,5 +23,5 @@ jobs:
         REPO: git@github.com:JolleJ/grpc_node.git
         BRANCH: master
         FOLDER: protos
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY2 }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
