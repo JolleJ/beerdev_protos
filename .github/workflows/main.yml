@@ -12,23 +12,16 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@master
-      with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - name: Create local changes
-      run: |
-        ...
-    - name: Commit files
-      run: |
-        git config --local user.email "joeljansson96@gmail.com"
-        git config --local user.name "JolleJ"
-        git commit -m "Add changes" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.CI_TOKEN }}
-        repository: "JolleJ/grpc_node"
+    - name: Deploy
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: git@github.com:JolleJ/grpc_node.git
+        BRANCH: master
+        FOLDER: protos
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
