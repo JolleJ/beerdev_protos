@@ -16,18 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: Pushes to another repository
+      uses: JolleJ/beerdev_protos
+      env: 
+        API_TOKEN_GITHUB: ${{ secrets.CI_TOKEN }}
       with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    - name: Create local changes
-      run: |
-        ...
-    - name: Commit files2
-      run: |
-        git config --local user.email "JoelJansson96@gmail.com"
-        git config --local user.name "JolleJ"
-        git commit -m "Add changes" -a
-    - name: Push changes
-      uses: JolleJ/grpc_node@master
-      with:
-        github_token: ${{ secrets.CI_TOKEN }}
+          source-directory: 'protos'
+          destination-github-username: 'JolleJ'
+          destination-repository-name: 'grpc_node'
+          user-email: JoelJansson96@gmail.com
