@@ -15,13 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Pushes to another repository
-      uses: JolleJ/beerdev_protos@master
-      env: 
-        API_TOKEN_GITHUB: ${{ secrets.CI_TOKEN }}
-      with:
-          source-directory: 'protos'
-          destination-github-username: 'JolleJ'
-          destination-repository-name: 'grpc_node'
-          user-email: JoelJansson96@gmail.com
+    - uses: actions/checkout@v2
+    - name: GitHub Action to Push Subdirectories to Another Repo
+      uses: johno/actions-push-subdirectories@v0.0.1
+
