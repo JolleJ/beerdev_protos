@@ -15,12 +15,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: GitHub Action to Push Subdirectories to Another Repo
-      uses: johno/actions-push-subdirectories@v0.0.1
-      env:
-          API_TOKEN_GITHUB: ${{ secrets.CI_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@master
       with:
-          args: protos JolleJ starter-name
-
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - name: Create local changes
+      run: |
+        ...
+    - name: Commit files
+      run: |
+        git config --local user.email "joeljansson96@gmail.com"
+        git config --local user.name "JolleJ"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.CI_TOKEN }}
+        repository: "JolleJ/grpc_node"
