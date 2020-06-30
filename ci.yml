@@ -17,4 +17,4 @@ jobs:
     - name: Push changes
       uses: ad-m/JolleJ/grpc_node@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.CI_TOKEN }}
