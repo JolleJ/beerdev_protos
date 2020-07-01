@@ -10,4 +10,7 @@ jobs:
         personal_token: ${{ secrets.API_TOKEN_GITHUB2 }}
         src_path: /protos
         dst_path: /protos/
+        dst_owner: JolleJ
         dst_repo_name: testAction
+        dst_branch: master
+        src_branch: master
