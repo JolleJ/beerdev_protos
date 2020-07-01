@@ -11,4 +11,4 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB2 }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: protos JolleJ grpc_node
+          args: protos JolleJ testAction
