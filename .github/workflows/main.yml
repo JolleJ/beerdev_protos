@@ -9,7 +9,6 @@ jobs:
       with:
         personal_token: ${{ secrets.API_TOKEN_GITHUB2 }}
         src_path: /protos
-        dst_path: /
         dst_owner: JolleJ
         dst_repo_name: testAction
         dst_branch: master
