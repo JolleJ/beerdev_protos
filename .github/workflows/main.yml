@@ -8,7 +8,7 @@ jobs:
       uses: andstor/copycat-action@v3
       with:
         personal_token: ${{ secrets.API_GRPC_KEY }}
-        src_path: /protos
+        src_path: /protos/.
         dst_path: /protos
         dst_owner: JolleJ
         dst_repo_name: grpc_node
