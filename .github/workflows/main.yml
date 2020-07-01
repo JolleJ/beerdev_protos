@@ -13,5 +13,5 @@ jobs:
         with:
           source-directory: 'protos'
           destination-github-username: 'JolleJ'
-          destination-repository-name: 'testAction'
+          destination-repository-name: 'testAction/protos'
           user-email: joeljansson96@gmail.com
