@@ -1,14 +1,13 @@
-name: Publish Starters
+name: Copy
 on: push
 jobs:
-  master:
+  copy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: publish:starters
-        uses: johno/actions-push-subdirectories@master
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB2 }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: protos JolleJ testAction
+    - name: Copycat
+      uses: andstor/copycat-action@v3
+      with:
+        personal_token: ${{ secrets.API_TOKEN_GITHUB2 }}
+        src_path: /protos
+        dst_path: /protos/
+        dst_repo_name: testAction
